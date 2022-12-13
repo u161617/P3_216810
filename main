@@ -1,0 +1,21 @@
+import subprocess
+
+def practica5():
+    # TALLEM EL VIDEO
+    subprocess('ffmpeg -i bbb.mp4 -ss 00:05:20 -t 00:10:00 -c:v copy -c:a copy bbb_curt.mp4')
+    # CONVERTIDOR DE MP4 A HTL
+    subprocess('ffmpeg -i bbb_curt.mp4 -codec: copy -start_number 0 -hls_time 10 -hls_list_size 0 -f hls output.m3u8')
+
+    # FRAGMENTEM EL VIDEO
+    subprocess('mp4fragment bbb_curt.mp4 bbb_curt_frag.mp4')
+    subprocess('mp4dash output_2.mpd bbb_curt_frag.mp4')
+
+    # HEM SAP GREU NO HAVER POGUT FER MES DE LA PRÀCTICA PERÒ M'HA COSTAT MOLT FER ELS ALTRES
+    # DOS EXERCICIS I NECESSITO ESTUDIAR PER ELS EXAMENS FINALS
+
+
+
+if __name__ == '__main__':
+    practica5()
+
+
